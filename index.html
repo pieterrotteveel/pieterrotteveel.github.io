@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pieter Rotteveel | Portfolio</title>
+    <title>Pieter Christiaan Rotteveel | Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
@@ -19,7 +19,6 @@
             <span class="text-xl font-bold tracking-tight">PR<span class="text-blue-600">.</span></span>
             <div class="space-x-8 font-medium text-sm uppercase tracking-widest text-slate-600">
                 <a href="#projects" class="hover:text-blue-600 transition">Projects</a>
-                <a href="#blog" class="hover:text-blue-600 transition">Blog</a>
                 <a href="#contact" class="hover:text-blue-600 transition">Contact</a>
             </div>
         </div>
@@ -28,11 +27,24 @@
     <header class="pt-32 pb-20 px-6">
         <div class="max-w-5xl mx-auto">
             <h1 class="text-5xl md:text-7xl font-bold mb-6">Hi, I'm <span class="gradient-text">Pieter.</span></h1>
-            <p class="text-xl text-slate-600 max-w-2xl leading-relaxed">
-                I'm a developer specializing in building clean, functional, and scalable digital experiences. 
-                Currently exploring the intersection of coding and creative design.
+            <p class="text-xl text-slate-600 max-w-2xl leading-relaxed mb-8">
+                BSc Economics student @ Bocconi University. I love coding and applied data analytics and science. 
+                Interested in quantitative finance and economics, machine learning (delving into neural nets), statistics, probability science and problem optimization.
             </p>
-            <div class="mt-10 flex gap-4">
+            
+            <!-- Tech Stack Section -->
+            <div class="mb-8 p-6 bg-white rounded-2xl border border-slate-200">
+                <div class="mb-4">
+                    <h3 class="font-semibold text-slate-800 mb-2">Stack:</h3>
+                    <p class="text-slate-600">Python · R · SQL · Excel</p>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-slate-800 mb-2">Tools & libs:</h3>
+                    <p class="text-slate-600">NumPy · pandas · scikit-learn (Random Forests) · XGBoost · LightGBM · statsmodels · matplotlib · Plotly · Jupyter · Git/GitHub · Docker · (learning: TensorFlow/PyTorch)</p>
+                </div>
+            </div>
+            
+            <div class="flex gap-4">
                 <a href="#projects" class="bg-slate-900 text-white px-8 py-3 rounded-full font-semibold hover:bg-slate-800 transition">View My Work</a>
                 <a href="https://github.com/pieterrotteveel" class="border border-slate-300 px-8 py-3 rounded-full font-semibold hover:bg-slate-100 transition">GitHub</a>
             </div>
@@ -43,58 +55,101 @@
         <div class="max-w-5xl mx-auto px-6">
             <h2 class="text-3xl font-bold mb-12">Featured Projects</h2>
             <div class="grid md:grid-cols-2 gap-8">
-                <div class="group border border-slate-100 rounded-2xl overflow-hidden hover:shadow-xl transition shadow-sm">
-                    <div class="h-48 bg-slate-200 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80" alt="Project 1" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">Algorithm Visualizer</h3>
-                        <p class="text-slate-600 mb-4 text-sm leading-relaxed">A tool designed to help students understand sorting algorithms through interactive animations.</p>
-                        <div class="flex gap-2 mb-4">
-                            <span class="text-xs font-bold px-3 py-1 bg-blue-50 text-blue-600 rounded-full">React</span>
-                            <span class="text-xs font-bold px-3 py-1 bg-green-50 text-green-600 rounded-full">D3.js</span>
+                <div class="group border border-slate-100 rounded-2xl overflow-hidden hover:shadow-xl transition shadow-sm p-6">
+                    <div class="mb-4">
+                        <h3 class="text-xl font-bold mb-2">Predicting Loan Payback</h3>
+                        <p class="text-slate-600 mb-4 text-sm leading-relaxed">End-to-end notebook for training gradient-boosted models (LightGBM & XGBoost) to predict whether a loan will be paid back. Includes lightweight EDA, feature engineering, cross-validated training, and model evaluation.</p>
+                        <div class="flex gap-2 flex-wrap mb-4">
+                            <span class="text-xs font-bold px-3 py-1 bg-blue-50 text-blue-600 rounded-full">Python</span>
+                            <span class="text-xs font-bold px-3 py-1 bg-green-50 text-green-600 rounded-full">LightGBM</span>
+                            <span class="text-xs font-bold px-3 py-1 bg-purple-50 text-purple-600 rounded-full">XGBoost</span>
+                            <span class="text-xs font-bold px-3 py-1 bg-orange-50 text-orange-600 rounded-full">Jupyter</span>
                         </div>
-                        <a href="#" class="text-blue-600 font-semibold hover:underline">View Project &rarr;</a>
+                        <a href="https://github.com/pieterrotteveel/Predicting-Loan-Payback" target="_blank" class="text-blue-600 font-semibold hover:underline flex items-center gap-2">
+                            View on GitHub <i class="fab fa-github"></i>
+                        </a>
                     </div>
                 </div>
 
-                <div class="group border border-slate-100 rounded-2xl overflow-hidden hover:shadow-xl transition shadow-sm">
-                    <div class="h-48 bg-slate-200 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=800&q=80" alt="Project 2" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">E-Commerce Engine</h3>
-                        <p class="text-slate-600 mb-4 text-sm leading-relaxed">A full-stack backend solution for high-traffic inventory management and checkout systems.</p>
-                        <div class="flex gap-2 mb-4">
-                            <span class="text-xs font-bold px-3 py-1 bg-purple-50 text-purple-600 rounded-full">Node.js</span>
-                            <span class="text-xs font-bold px-3 py-1 bg-red-50 text-red-600 rounded-full">Redis</span>
+                <div class="group border border-slate-100 rounded-2xl overflow-hidden hover:shadow-xl transition shadow-sm p-6">
+                    <div class="mb-4">
+                        <h3 class="text-xl font-bold mb-2">Optimal Betting Kelly Criterion</h3>
+                        <p class="text-slate-600 mb-4 text-sm leading-relaxed">Quantitative analysis of optimal bet sizing using the Kelly Criterion under varying odds and probabilities. This project explores how bettors can maximize long-term wealth growth when having an edge in gambling scenarios.</p>
+                        <div class="flex gap-2 flex-wrap mb-4">
+                            <span class="text-xs font-bold px-3 py-1 bg-blue-50 text-blue-600 rounded-full">Python</span>
+                            <span class="text-xs font-bold px-3 py-1 bg-red-50 text-red-600 rounded-full">NumPy</span>
+                            <span class="text-xs font-bold px-3 py-1 bg-yellow-50 text-yellow-600 rounded-full">Matplotlib</span>
+                            <span class="text-xs font-bold px-3 py-1 bg-orange-50 text-orange-600 rounded-full">Jupyter</span>
                         </div>
-                        <a href="#" class="text-blue-600 font-semibold hover:underline">View Project &rarr;</a>
+                        <a href="https://github.com/pieterrotteveel/Optimal-Betting-Kelly-Criterion" target="_blank" class="text-blue-600 font-semibold hover:underline flex items-center gap-2">
+                            View on GitHub <i class="fab fa-github"></i>
+                        </a>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
 
-    <section id="blog" class="py-20 px-6">
-        <div class="max-w-5xl mx-auto">
-            <h2 class="text-3xl font-bold mb-12">Latest Articles</h2>
-            <div class="space-y-8">
-                <article class="flex flex-col md:flex-row justify-between md:items-center border-b border-slate-200 pb-8 group cursor-pointer">
-                    <div>
-                        <span class="text-slate-400 text-sm font-medium">Jan 13, 2026 • 5 min read</span>
-                        <h3 class="text-2xl font-bold group-hover:text-blue-600 transition mt-2">Why Clean Code Matters in 2026</h3>
+                <div class="group border border-slate-100 rounded-2xl overflow-hidden hover:shadow-xl transition shadow-sm p-6">
+                    <div class="mb-4">
+                        <h3 class="text-xl font-bold mb-2">Python Portfolio Tracker</h3>
+                        <p class="text-slate-600 mb-4 text-sm leading-relaxed">A command-line portfolio tracker that reads your trades from a CSV file and pulls live data (price, dividends, day & month moves) from Yahoo Finance via yfinance. Track your investment performance in real-time.</p>
+                        <div class="flex gap-2 flex-wrap mb-4">
+                            <span class="text-xs font-bold px-3 py-1 bg-blue-50 text-blue-600 rounded-full">Python</span>
+                            <span class="text-xs font-bold px-3 py-1 bg-green-50 text-green-600 rounded-full">pandas</span>
+                            <span class="text-xs font-bold px-3 py-1 bg-purple-50 text-purple-600 rounded-full">yfinance</span>
+                            <span class="text-xs font-bold px-3 py-1 bg-indigo-50 text-indigo-600 rounded-full">CLI</span>
+                        </div>
+                        <a href="https://github.com/pieterrotteveel/Python-Basic-Portfolio-Tracker" target="_blank" class="text-blue-600 font-semibold hover:underline flex items-center gap-2">
+                            View on GitHub <i class="fab fa-github"></i>
+                        </a>
                     </div>
-                    <span class="text-slate-300 group-hover:text-blue-600 transition hidden md:block"><i class="fas fa-arrow-right text-2xl"></i></span>
-                </article>
+                </div>
 
-                <article class="flex flex-col md:flex-row justify-between md:items-center border-b border-slate-200 pb-8 group cursor-pointer">
-                    <div>
-                        <span class="text-slate-400 text-sm font-medium">Dec 20, 2025 • 8 min read</span>
-                        <h3 class="text-2xl font-bold group-hover:text-blue-600 transition mt-2">The Future of AI-Assisted Development</h3>
+                <div class="group border border-slate-100 rounded-2xl overflow-hidden hover:shadow-xl transition shadow-sm p-6">
+                    <div class="mb-4">
+                        <h3 class="text-xl font-bold mb-2">Sweet Market Production Planning</h3>
+                        <p class="text-slate-600 mb-4 text-sm leading-relaxed">Competition project where each team represents a small artisan cake shop that produces and sells ten distinct types of cakes. Strategic operations planning to optimize production, pricing, and market competition using data analysis.</p>
+                        <div class="flex gap-2 flex-wrap mb-4">
+                            <span class="text-xs font-bold px-3 py-1 bg-blue-50 text-blue-600 rounded-full">Python</span>
+                            <span class="text-xs font-bold px-3 py-1 bg-green-50 text-green-600 rounded-full">pandas</span>
+                            <span class="text-xs font-bold px-3 py-1 bg-red-50 text-red-600 rounded-full">Optimization</span>
+                            <span class="text-xs font-bold px-3 py-1 bg-orange-50 text-orange-600 rounded-full">Jupyter</span>
+                        </div>
+                        <a href="https://github.com/pieterrotteveel/Sweet-Market-Production-Planning-and-Pricing-Competition" target="_blank" class="text-blue-600 font-semibold hover:underline flex items-center gap-2">
+                            View on GitHub <i class="fab fa-github"></i>
+                        </a>
                     </div>
-                    <span class="text-slate-300 group-hover:text-blue-600 transition hidden md:block"><i class="fas fa-arrow-right text-2xl"></i></span>
-                </article>
+                </div>
+
+                <div class="group border border-slate-100 rounded-2xl overflow-hidden hover:shadow-xl transition shadow-sm p-6">
+                    <div class="mb-4">
+                        <h3 class="text-xl font-bold mb-2">Social Media Extremism Detection</h3>
+                        <p class="text-slate-600 mb-4 text-sm leading-relaxed">End-to-end Natural Language Processing (NLP) pipeline to detect extremist content in social media messages. Leverages Hugging Face Transformers and PyTorch to classify and analyze potentially harmful content using state-of-the-art ML techniques.</p>
+                        <div class="flex gap-2 flex-wrap mb-4">
+                            <span class="text-xs font-bold px-3 py-1 bg-blue-50 text-blue-600 rounded-full">Python</span>
+                            <span class="text-xs font-bold px-3 py-1 bg-purple-50 text-purple-600 rounded-full">PyTorch</span>
+                            <span class="text-xs font-bold px-3 py-1 bg-yellow-50 text-yellow-600 rounded-full">Transformers</span>
+                            <span class="text-xs font-bold px-3 py-1 bg-orange-50 text-orange-600 rounded-full">Jupyter</span>
+                        </div>
+                        <a href="https://github.com/pieterrotteveel/Social-Media-Extremism-Detection-Challenge" target="_blank" class="text-blue-600 font-semibold hover:underline flex items-center gap-2">
+                            View on GitHub <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="group border border-slate-100 rounded-2xl overflow-hidden hover:shadow-xl transition shadow-sm p-6">
+                    <div class="mb-4">
+                        <h3 class="text-xl font-bold mb-2">Option Pricing Utilities</h3>
+                        <p class="text-slate-600 mb-4 text-sm leading-relaxed">My utilities for European option pricing and risk analysis under the Black-Scholes-Merton (BSM) model. Includes implementation of the Greeks for comprehensive options risk management and derivatives pricing.</p>
+                        <div class="flex gap-2 flex-wrap mb-4">
+                            <span class="text-xs font-bold px-3 py-1 bg-blue-50 text-blue-600 rounded-full">Python</span>
+                            <span class="text-xs font-bold px-3 py-1 bg-red-50 text-red-600 rounded-full">NumPy</span>
+                            <span class="text-xs font-bold px-3 py-1 bg-green-50 text-green-600 rounded-full">Finance</span>
+                            <span class="text-xs font-bold px-3 py-1 bg-indigo-50 text-indigo-600 rounded-full">Derivatives</span>
+                        </div>
+                        <a href="https://github.com/pieterrotteveel/Option-Pricing-Utilities" target="_blank" class="text-blue-600 font-semibold hover:underline flex items-center gap-2">
+                            View on GitHub <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -103,15 +158,14 @@
         <div class="max-w-5xl mx-auto text-center">
             <h2 class="text-3xl font-bold mb-6">Let's build something together.</h2>
             <p class="text-slate-400 mb-8">Currently open for freelance projects and collaborations.</p>
-            <a href="mailto:your-email@example.com" class="text-2xl font-semibold border-b-2 border-blue-500 pb-2 hover:text-blue-400 transition">
-                pieter@example.com
+            <a href="mailto:pieterrotteveel.github@gmail.com" class="text-2xl font-semibold border-b-2 border-blue-500 pb-2 hover:text-blue-400 transition">
+                pieterrotteveel.github@gmail.com
             </a>
             <div class="mt-12 flex justify-center gap-6 text-2xl text-slate-500">
-                <a href="#" class="hover:text-white transition"><i class="fab fa-linkedin"></i></a>
-                <a href="#" class="hover:text-white transition"><i class="fab fa-twitter"></i></a>
-                <a href="#" class="hover:text-white transition"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/pieterrotteveel" class="hover:text-white transition"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/pieterrotteveel" class="hover:text-white transition"><i class="fab fa-github"></i></a>
             </div>
-            <p class="mt-20 text-sm text-slate-600">&copy; 2026 Pieter Rotteveel. Built with HTML & Tailwind.</p>
+            <p class="mt-20 text-sm text-slate-600">&copy; 2026 Pieter Rotteveel</p>
         </div>
     </footer>
 
