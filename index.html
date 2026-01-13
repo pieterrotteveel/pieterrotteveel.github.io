@@ -9,30 +9,65 @@
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
-        .gradient-text { background: linear-gradient(135deg, #2563eb, #0ea5e9); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         
-        /* Particle Container */
-        #particles-js {
-            position: absolute;
-            width: 100%;
-            height: 100%;
+        body { 
+            font-family: 'Inter', sans-serif; 
+            cursor: none; /* Hide default cursor for the custom one */
+            background-color: #f8fafc;
+        }
+
+        /* Custom Game Cursor */
+        #cursor-dot, #cursor-outline {
+            position: fixed;
             top: 0;
             left: 0;
-            z-index: 1; /* Behind text but above background */
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            z-index: 9999;
+            pointer-events: none;
+        }
+        #cursor-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #2563eb;
+        }
+        #cursor-outline {
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(37, 99, 235, 0.5);
+            transition: width 0.2s, height 0.2s, background-color 0.2s;
         }
         
+        /* Interactive Elements Hover State */
+        body:hover #cursor-outline { opacity: 1; }
+        a:hover ~ #cursor-outline, button:hover ~ #cursor-outline {
+            width: 60px;
+            height: 60px;
+            background-color: rgba(37, 99, 235, 0.1);
+            border-color: transparent;
+        }
+
+        .gradient-text { background: linear-gradient(135deg, #2563eb, #0ea5e9); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        
+        /* Layout Utilities */
+        #particles-js { position: absolute; width: 100%; height: 100%; top: 0; left: 0; z-index: 0; }
         .hero-content { position: relative; z-index: 10; }
-        .tech-card { backdrop-filter: blur(12px); background-color: rgba(255, 255, 255, 0.8); }
-        .project-card { transition: all 0.3s ease; }
-        .project-card:hover { transform: translateY(-5px); border-color: #3b82f6; }
+        .tech-card { backdrop-filter: blur(12px); background-color: rgba(255, 255, 255, 0.85); }
+        
+        .project-card { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        .project-card:hover { transform: translateY(-8px); border-color: #3b82f6; box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.05), 0 8px 10px -6px rgb(0 0 0 / 0.01); }
     </style>
 </head>
-<body class="bg-[#fcfcfc] text-slate-900 antialiased">
+<body class="text-slate-900 antialiased selection:bg-blue-100 selection:text-blue-900">
 
-    <nav class="fixed w-full z-50 bg-white/70 backdrop-blur-md border-b border-slate-200/50">
-        <div class="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
-            <span class="text-xl font-bold tracking-tight uppercase">PR<span class="text-blue-600">.</span></span>
+    <div id="cursor-dot"></div>
+    <div id="cursor-outline"></div>
+
+    <nav class="fixed w-full z-40 bg-white/80 backdrop-blur-md border-b border-slate-200/60">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-sm font-bold tracking-wider text-slate-900 hover:text-blue-600 transition-colors uppercase">
+                Pieter Christiaan Rotteveel
+            </a>
             <div class="space-x-8 font-semibold text-[11px] uppercase tracking-[0.2em] text-slate-500">
                 <a href="#projects" class="hover:text-blue-600 transition-colors">Projects</a>
                 <a href="#contact" class="hover:text-blue-600 transition-colors">Contact</a>
@@ -40,24 +75,33 @@
         </div>
     </nav>
 
-    <header class="relative pt-40 pb-24 px-6 overflow-hidden bg-white">
+    <header class="relative pt-44 pb-28 px-6 overflow-hidden bg-white">
         <div id="particles-js"></div>
 
         <div class="max-w-5xl mx-auto hero-content">
-            <h1 class="text-6xl md:text-8xl font-extrabold mb-8 tracking-tighter">Hi, I'm <span class="gradient-text">Pieter.</span></h1>
-            <p class="text-xl md:text-2xl text-slate-600 max-w-3xl leading-relaxed mb-10 font-light">
-                BSc Economics student @ <span class="text-slate-900 font-medium">Bocconi University</span>. I love coding and applied data analytics and science. 
-                Interested in quantitative finance and economics, machine learning, statistics, and problem optimization.
+            <h1 class="text-6xl md:text-8xl font-extrabold mb-8 tracking-tighter">
+                Hi, I'm <span class="gradient-text">Pieter.</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-slate-600 max-w-3xl leading-relaxed mb-12 font-light">
+                BSc Economics student @ <span class="text-slate-900 font-medium">Bocconi University</span>. 
+                Bridging the gap between economic theory and applied data science. 
+                Specialized in quantitative finance, machine learning, and optimization.
             </p>
             
-            <div class="mb-10 p-8 tech-card rounded-3xl border border-slate-200 shadow-sm">
-                <div class="grid md:grid-cols-2 gap-8">
+            <div class="mb-12 p-8 tech-card rounded-3xl border border-slate-200 shadow-sm">
+                <div class="grid md:grid-cols-2 gap-10">
                     <div>
-                        <h3 class="text-xs font-bold text-blue-600 uppercase tracking-widest mb-3">Core Stack</h3>
+                        <div class="flex items-center gap-2 mb-3">
+                            <i class="fas fa-code text-blue-600 text-xs"></i>
+                            <h3 class="text-xs font-bold text-blue-600 uppercase tracking-widest">Core Stack</h3>
+                        </div>
                         <p class="text-slate-800 font-medium text-lg font-mono">Python · R · SQL · Excel</p>
                     </div>
                     <div>
-                        <h3 class="text-xs font-bold text-blue-600 uppercase tracking-widest mb-3">Tools & Libraries</h3>
+                        <div class="flex items-center gap-2 mb-3">
+                            <i class="fas fa-layer-group text-blue-600 text-xs"></i>
+                            <h3 class="text-xs font-bold text-blue-600 uppercase tracking-widest">Tools & Libraries</h3>
+                        </div>
                         <p class="text-slate-600 text-sm leading-relaxed">
                             NumPy · pandas · scikit-learn · XGBoost · LightGBM · statsmodels · matplotlib · Plotly · Jupyter · Git · Docker · TensorFlow/PyTorch
                         </p>
@@ -66,8 +110,8 @@
             </div>
             
             <div class="flex flex-wrap gap-4">
-                <a href="#projects" class="bg-slate-900 text-white px-8 py-4 rounded-2xl font-bold hover:bg-blue-600 transition-all shadow-lg">View My Work</a>
-                <a href="https://github.com/pieterrotteveel" target="_blank" class="bg-white/50 border border-slate-200 px-8 py-4 rounded-2xl font-bold hover:bg-slate-50 transition-all flex items-center gap-2">
+                <a href="#projects" class="bg-slate-900 text-white px-8 py-4 rounded-2xl font-bold hover:bg-blue-600 transition-all shadow-xl shadow-slate-200/50">View My Work</a>
+                <a href="https://github.com/pieterrotteveel" target="_blank" class="bg-white/80 border border-slate-200 px-8 py-4 rounded-2xl font-bold hover:bg-white transition-all flex items-center gap-2 backdrop-blur-sm">
                     <i class="fab fa-github"></i> GitHub
                 </a>
             </div>
@@ -75,81 +119,161 @@
     </header>
 
     <section id="projects" class="py-24 bg-white border-t border-slate-100">
-        <div class="max-w-5xl mx-auto px-6">
+        <div class="max-w-6xl mx-auto px-6">
             <h2 class="text-3xl font-bold mb-16 tracking-tight">Featured Projects</h2>
-            <div class="grid md:grid-cols-2 gap-10">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
                 <div class="project-card border border-slate-100 rounded-3xl p-8 bg-white flex flex-col justify-between shadow-sm">
                     <div>
-                        <div class="flex justify-between items-start mb-6 font-mono text-xs text-blue-600 font-bold uppercase tracking-widest">
+                        <div class="flex justify-between items-start mb-6 text-xs font-bold uppercase tracking-widest text-blue-600">
                             <span>Classification</span>
-                            <i class="fas fa-chart-line text-lg"></i>
+                            <i class="fas fa-chart-line text-lg opacity-50"></i>
                         </div>
-                        <h3 class="text-2xl font-bold mb-3 text-slate-900">Predicting Loan Payback</h3>
-                        <p class="text-slate-600 mb-6 text-sm leading-relaxed">End-to-end notebook for training gradient-boosted models (LightGBM & XGBoost) to predict whether a loan will be paid back. Includes lightweight EDA, feature engineering, and cross-validated training.</p>
-                        <div class="flex gap-2 flex-wrap mb-8">
-                            <span class="text-[10px] font-bold px-3 py-1 bg-slate-100 text-slate-600 rounded-lg">LightGBM</span>
-                            <span class="text-[10px] font-bold px-3 py-1 bg-slate-100 text-slate-600 rounded-lg">XGBoost</span>
-                            <span class="text-[10px] font-bold px-3 py-1 bg-slate-100 text-slate-600 rounded-lg">Python</span>
+                        <h3 class="text-xl font-bold mb-3 text-slate-900">Predicting Loan Payback</h3>
+                        <p class="text-slate-600 mb-6 text-sm leading-relaxed">Training gradient-boosted models (LightGBM & XGBoost) to predict loan repayment. Includes EDA and cross-validated training.</p>
+                        <div class="flex gap-2 flex-wrap mb-6">
+                            <span class="text-[10px] font-bold px-2 py-1 bg-slate-50 border border-slate-200 text-slate-600 rounded">LightGBM</span>
+                            <span class="text-[10px] font-bold px-2 py-1 bg-slate-50 border border-slate-200 text-slate-600 rounded">XGBoost</span>
                         </div>
                     </div>
-                    <a href="https://github.com/pieterrotteveel/Predicting-Loan-Payback" target="_blank" class="group text-blue-600 font-bold flex items-center gap-2 text-sm">
-                        View Source <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                    <a href="https://github.com/pieterrotteveel/Predicting-Loan-Payback" target="_blank" class="text-blue-600 font-bold flex items-center gap-2 text-xs uppercase tracking-wider group">
+                        View Code <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
                     </a>
                 </div>
 
                 <div class="project-card border border-slate-100 rounded-3xl p-8 bg-white flex flex-col justify-between shadow-sm">
                     <div>
-                        <div class="flex justify-between items-start mb-6 font-mono text-xs text-emerald-600 font-bold uppercase tracking-widest">
+                        <div class="flex justify-between items-start mb-6 text-xs font-bold uppercase tracking-widest text-emerald-600">
                             <span>Quantitative</span>
-                            <i class="fas fa-percentage text-lg"></i>
+                            <i class="fas fa-percentage text-lg opacity-50"></i>
                         </div>
-                        <h3 class="text-2xl font-bold mb-3 text-slate-900">Kelly Criterion Analysis</h3>
-                        <p class="text-slate-600 mb-6 text-sm leading-relaxed">Analysis of optimal bet sizing under varying odds and probabilities. Explores how bettors maximize long-term wealth growth when having an edge in gambling scenarios.</p>
-                        <div class="flex gap-2 flex-wrap mb-8">
-                            <span class="text-[10px] font-bold px-3 py-1 bg-slate-100 text-slate-600 rounded-lg">NumPy</span>
-                            <span class="text-[10px] font-bold px-3 py-1 bg-slate-100 text-slate-600 rounded-lg">Matplotlib</span>
-                            <span class="text-[10px] font-bold px-3 py-1 bg-slate-100 text-slate-600 rounded-lg">Math</span>
+                        <h3 class="text-xl font-bold mb-3 text-slate-900">Kelly Criterion Analysis</h3>
+                        <p class="text-slate-600 mb-6 text-sm leading-relaxed">Analysis of optimal bet sizing under varying probabilities. Explores maximizing long-term wealth growth with a mathematical edge.</p>
+                        <div class="flex gap-2 flex-wrap mb-6">
+                            <span class="text-[10px] font-bold px-2 py-1 bg-slate-50 border border-slate-200 text-slate-600 rounded">NumPy</span>
+                            <span class="text-[10px] font-bold px-2 py-1 bg-slate-50 border border-slate-200 text-slate-600 rounded">Matplotlib</span>
                         </div>
                     </div>
-                    <a href="https://github.com/pieterrotteveel/Optimal-Betting-Kelly-Criterion" target="_blank" class="group text-blue-600 font-bold flex items-center gap-2 text-sm">
-                        View Source <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                    <a href="https://github.com/pieterrotteveel/Optimal-Betting-Kelly-Criterion" target="_blank" class="text-emerald-600 font-bold flex items-center gap-2 text-xs uppercase tracking-wider group">
+                        View Code <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
                     </a>
                 </div>
+
+                <div class="project-card border border-slate-100 rounded-3xl p-8 bg-white flex flex-col justify-between shadow-sm">
+                    <div>
+                        <div class="flex justify-between items-start mb-6 text-xs font-bold uppercase tracking-widest text-amber-600">
+                            <span>FinTech</span>
+                            <i class="fas fa-wallet text-lg opacity-50"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-slate-900">Python Portfolio Tracker</h3>
+                        <p class="text-slate-600 mb-6 text-sm leading-relaxed">CLI tracker pulling live data from Yahoo Finance. Tracks real-time performance, dividends, and daily moves from CSV input.</p>
+                        <div class="flex gap-2 flex-wrap mb-6">
+                            <span class="text-[10px] font-bold px-2 py-1 bg-slate-50 border border-slate-200 text-slate-600 rounded">yfinance</span>
+                            <span class="text-[10px] font-bold px-2 py-1 bg-slate-50 border border-slate-200 text-slate-600 rounded">pandas</span>
+                        </div>
+                    </div>
+                    <a href="https://github.com/pieterrotteveel/Python-Basic-Portfolio-Tracker" target="_blank" class="text-amber-600 font-bold flex items-center gap-2 text-xs uppercase tracking-wider group">
+                        View Code <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                    </a>
                 </div>
+
+                <div class="project-card border border-slate-100 rounded-3xl p-8 bg-white flex flex-col justify-between shadow-sm">
+                    <div>
+                        <div class="flex justify-between items-start mb-6 text-xs font-bold uppercase tracking-widest text-purple-600">
+                            <span>Optimization</span>
+                            <i class="fas fa-chess text-lg opacity-50"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-slate-900">Production Planning</h3>
+                        <p class="text-slate-600 mb-6 text-sm leading-relaxed">Strategic operations planning for an artisan cake shop. Optimizes production and pricing using competition-driven data analysis.</p>
+                        <div class="flex gap-2 flex-wrap mb-6">
+                            <span class="text-[10px] font-bold px-2 py-1 bg-slate-50 border border-slate-200 text-slate-600 rounded">SciPy</span>
+                            <span class="text-[10px] font-bold px-2 py-1 bg-slate-50 border border-slate-200 text-slate-600 rounded">Pandas</span>
+                        </div>
+                    </div>
+                    <a href="https://github.com/pieterrotteveel/Sweet-Market-Production-Planning-and-Pricing-Competition" target="_blank" class="text-purple-600 font-bold flex items-center gap-2 text-xs uppercase tracking-wider group">
+                        View Code <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+
+                <div class="project-card border border-slate-100 rounded-3xl p-8 bg-white flex flex-col justify-between shadow-sm">
+                    <div>
+                        <div class="flex justify-between items-start mb-6 text-xs font-bold uppercase tracking-widest text-red-600">
+                            <span>NLP / AI</span>
+                            <i class="fas fa-brain text-lg opacity-50"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-slate-900">Extremism Detection</h3>
+                        <p class="text-slate-600 mb-6 text-sm leading-relaxed">End-to-end NLP pipeline using Hugging Face Transformers & PyTorch to classify and analyze harmful social media content.</p>
+                        <div class="flex gap-2 flex-wrap mb-6">
+                            <span class="text-[10px] font-bold px-2 py-1 bg-slate-50 border border-slate-200 text-slate-600 rounded">PyTorch</span>
+                            <span class="text-[10px] font-bold px-2 py-1 bg-slate-50 border border-slate-200 text-slate-600 rounded">Transformers</span>
+                        </div>
+                    </div>
+                    <a href="https://github.com/pieterrotteveel/Social-Media-Extremism-Detection-Challenge" target="_blank" class="text-red-600 font-bold flex items-center gap-2 text-xs uppercase tracking-wider group">
+                        View Code <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+
+                <div class="project-card border border-slate-100 rounded-3xl p-8 bg-white flex flex-col justify-between shadow-sm">
+                    <div>
+                        <div class="flex justify-between items-start mb-6 text-xs font-bold uppercase tracking-widest text-indigo-600">
+                            <span>Derivatives</span>
+                            <i class="fas fa-file-contract text-lg opacity-50"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-slate-900">Option Pricing Utils</h3>
+                        <p class="text-slate-600 mb-6 text-sm leading-relaxed">Black-Scholes-Merton (BSM) implementation. Includes the Greeks for comprehensive options risk management.</p>
+                        <div class="flex gap-2 flex-wrap mb-6">
+                            <span class="text-[10px] font-bold px-2 py-1 bg-slate-50 border border-slate-200 text-slate-600 rounded">Finance</span>
+                            <span class="text-[10px] font-bold px-2 py-1 bg-slate-50 border border-slate-200 text-slate-600 rounded">Math</span>
+                        </div>
+                    </div>
+                    <a href="https://github.com/pieterrotteveel/Option-Pricing-Utilities" target="_blank" class="text-indigo-600 font-bold flex items-center gap-2 text-xs uppercase tracking-wider group">
+                        View Code <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+
+            </div>
         </div>
     </section>
 
-    <footer id="contact" class="py-24 bg-slate-950 text-white px-6">
+    <footer id="contact" class="py-24 bg-slate-950 text-white px-6 cursor-default">
         <div class="max-w-5xl mx-auto text-center">
-            <h2 class="text-4xl font-bold mb-4 tracking-tight text-white">Let's build something together.</h2>
+            <h2 class="text-4xl font-bold mb-4 tracking-tight">Let's build something together.</h2>
             <p class="text-slate-400 mb-12 font-light">Open for research collaborations, quantitative projects, and data science opportunities.</p>
+            
             <a href="mailto:pieterrotteveel.github@gmail.com" class="text-xl md:text-3xl font-medium text-blue-400 hover:text-white transition-colors underline underline-offset-8 decoration-slate-800">
                 pieterrotteveel.github@gmail.com
             </a>
+            
+            <div class="mt-16 flex justify-center gap-10 text-3xl">
+                <a href="https://linkedin.com/in/pieter-christiaan-rotteveel" class="text-slate-500 hover:text-white transition-all"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/pieterrotteveel" class="text-slate-500 hover:text-white transition-all"><i class="fab fa-github"></i></a>
+            </div>
+            
             <div class="mt-24 pt-8 border-t border-white/5 text-[10px] text-slate-600 uppercase tracking-[0.3em]">
-                &copy; 2026 Pieter Christiaan Rotteveel · Designed for Impact
+                &copy; 2026 Pieter Christiaan Rotteveel
             </div>
         </div>
     </footer>
 
     <script>
+        // 1. Particle System Configuration
         particlesJS("particles-js", {
             "particles": {
-                "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
-                "color": { "value": "#cbd5e1" }, /* Light Grey dots */
+                "number": { "value": 90, "density": { "enable": true, "value_area": 1000 } },
+                "color": { "value": "#94a3b8" }, /* Slate-400 */
                 "shape": { "type": "circle" },
-                "opacity": { "value": 0.5, "random": false },
+                "opacity": { "value": 0.3, "random": false },
                 "size": { "value": 3, "random": true },
                 "line_linked": {
                     "enable": true,
                     "distance": 150,
-                    "color": "#e2e8f0", /* Soft grey lines */
-                    "opacity": 0.4,
+                    "color": "#cbd5e1", /* Slate-300 */
+                    "opacity": 0.3,
                     "width": 1
                 },
                 "move": {
                     "enable": true,
-                    "speed": 1.5,
+                    "speed": 1,
                     "direction": "none",
                     "random": false,
                     "straight": false,
@@ -158,16 +282,50 @@
                 }
             },
             "interactivity": {
-                "detect_on": "canvas",
+                "detect_on": "window",
                 "events": {
-                    "onhover": { "enable": true, "mode": "grab" },
-                    "onclick": { "enable": false }
+                    "onhover": { "enable": true, "mode": "grab" }, /* Magnetic Grab Effect */
+                    "onclick": { "enable": true, "mode": "push" }
                 },
                 "modes": {
-                    "grab": { "distance": 140, "line_linked": { "opacity": 1 } }
+                    "grab": { "distance": 180, "line_linked": { "opacity": 0.8 } }, /* Stronger connection on hover */
+                    "push": { "particles_nb": 4 }
                 }
             },
             "retina_detect": true
+        });
+
+        // 2. Custom Cursor Logic
+        const cursorDot = document.getElementById("cursor-dot");
+        const cursorOutline = document.getElementById("cursor-outline");
+
+        window.addEventListener("mousemove", function(e) {
+            const posX = e.clientX;
+            const posY = e.clientY;
+
+            // Dot follows instantly
+            cursorDot.style.left = `${posX}px`;
+            cursorDot.style.top = `${posY}px`;
+
+            // Outline follows with slight delay for "fluid" feel
+            cursorOutline.animate({
+                left: `${posX}px`,
+                top: `${posY}px`
+            }, { duration: 500, fill: "forwards" });
+        });
+
+        // Add "Magnetic" feel to all links and buttons
+        const interactiveElements = document.querySelectorAll('a, button, .project-card');
+        
+        interactiveElements.forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                cursorOutline.style.transform = 'translate(-50%, -50%) scale(1.5)';
+                cursorOutline.style.backgroundColor = 'rgba(37, 99, 235, 0.05)';
+            });
+            el.addEventListener('mouseleave', () => {
+                cursorOutline.style.transform = 'translate(-50%, -50%) scale(1)';
+                cursorOutline.style.backgroundColor = 'transparent';
+            });
         });
     </script>
 </body>
