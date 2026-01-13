@@ -12,48 +12,56 @@
         
         body { 
             font-family: 'Inter', sans-serif; 
-            cursor: none; /* Hide default cursor for the custom one */
+            cursor: none; /* Hide default cursor */
             background-color: #f8fafc;
         }
 
-        /* Custom Game Cursor */
-        #cursor-dot, #cursor-outline {
+        /* --- PROFESSIONAL CURSOR DESIGN --- */
+        
+        /* The Precision Point (Dot) */
+        #cursor-dot {
             position: fixed;
-            top: 0;
-            left: 0;
-            transform: translate(-50%, -50%);
+            top: 0; left: 0;
+            width: 6px;
+            height: 6px;
+            background-color: #0f172a; /* Dark Slate (High contrast, professional) */
             border-radius: 50%;
             z-index: 9999;
             pointer-events: none;
-        }
-        #cursor-dot {
-            width: 8px;
-            height: 8px;
-            background-color: #2563eb;
-        }
-        #cursor-outline {
-            width: 40px;
-            height: 40px;
-            border: 1px solid rgba(37, 99, 235, 0.5);
-            transition: width 0.2s, height 0.2s, background-color 0.2s;
-        }
-        
-        /* Interactive Elements Hover State */
-        body:hover #cursor-outline { opacity: 1; }
-        a:hover ~ #cursor-outline, button:hover ~ #cursor-outline {
-            width: 60px;
-            height: 60px;
-            background-color: rgba(37, 99, 235, 0.1);
-            border-color: transparent;
+            transform: translate(-50%, -50%);
         }
 
-        .gradient-text { background: linear-gradient(135deg, #2563eb, #0ea5e9); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        /* The Fluid Ring (Outline) */
+        #cursor-outline {
+            position: fixed;
+            top: 0; left: 0;
+            width: 32px;
+            height: 32px;
+            border: 1px solid rgba(15, 23, 42, 0.15); /* Very subtle grey ring */
+            border-radius: 50%;
+            z-index: 9998;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            transition: width 0.2s ease-out, height 0.2s ease-out, background-color 0.2s, border-color 0.2s;
+        }
+
+        /* Cursor Hover State (When hovering links/buttons) */
+        body.hovering #cursor-outline {
+            width: 50px;
+            height: 50px;
+            border-color: rgba(37, 99, 235, 0.4); /* Brands blue, subtle border */
+            background-color: rgba(37, 99, 235, 0.03); /* Extremely faint blue fill */
+        }
         
-        /* Layout Utilities */
+        body.hovering #cursor-dot {
+            transform: translate(-50%, -50%) scale(0.8); /* Dot shrinks slightly for focus */
+        }
+
+        /* --- LAYOUT UTILS --- */
+        .gradient-text { background: linear-gradient(135deg, #2563eb, #0ea5e9); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         #particles-js { position: absolute; width: 100%; height: 100%; top: 0; left: 0; z-index: 0; }
         .hero-content { position: relative; z-index: 10; }
         .tech-card { backdrop-filter: blur(12px); background-color: rgba(255, 255, 255, 0.85); }
-        
         .project-card { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
         .project-card:hover { transform: translateY(-8px); border-color: #3b82f6; box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.05), 0 8px 10px -6px rgb(0 0 0 / 0.01); }
     </style>
@@ -77,13 +85,13 @@
 
     <header class="relative pt-44 pb-28 px-6 overflow-hidden bg-white">
         <div id="particles-js"></div>
-
         <div class="max-w-5xl mx-auto hero-content">
             <h1 class="text-6xl md:text-8xl font-extrabold mb-8 tracking-tighter">
                 Hi, I'm <span class="gradient-text">Pieter.</span>
             </h1>
             <p class="text-xl md:text-2xl text-slate-600 max-w-3xl leading-relaxed mb-12 font-light">
-                BSc Economics student @ <span class="text-slate-900 font-medium">Bocconi University</span>.
+                BSc Economics student @ <span class="text-slate-900 font-medium">Bocconi University</span>. 
+                Bridging the gap between economic theory and applied data science. 
                 Specialized in quantitative finance, machine learning, and optimization.
             </p>
             
@@ -283,20 +291,21 @@
             "interactivity": {
                 "detect_on": "window",
                 "events": {
-                    "onhover": { "enable": true, "mode": "grab" }, /* Magnetic Grab Effect */
+                    "onhover": { "enable": true, "mode": "grab" },
                     "onclick": { "enable": true, "mode": "push" }
                 },
                 "modes": {
-                    "grab": { "distance": 180, "line_linked": { "opacity": 0.8 } }, /* Stronger connection on hover */
+                    "grab": { "distance": 180, "line_linked": { "opacity": 0.8 } },
                     "push": { "particles_nb": 4 }
                 }
             },
             "retina_detect": true
         });
 
-        // 2. Custom Cursor Logic
+        // 2. Professional Cursor Logic
         const cursorDot = document.getElementById("cursor-dot");
         const cursorOutline = document.getElementById("cursor-outline");
+        const body = document.body;
 
         window.addEventListener("mousemove", function(e) {
             const posX = e.clientX;
@@ -318,12 +327,10 @@
         
         interactiveElements.forEach(el => {
             el.addEventListener('mouseenter', () => {
-                cursorOutline.style.transform = 'translate(-50%, -50%) scale(1.5)';
-                cursorOutline.style.backgroundColor = 'rgba(37, 99, 235, 0.05)';
+                body.classList.add('hovering');
             });
             el.addEventListener('mouseleave', () => {
-                cursorOutline.style.transform = 'translate(-50%, -50%) scale(1)';
-                cursorOutline.style.backgroundColor = 'transparent';
+                body.classList.remove('hovering');
             });
         });
     </script>
