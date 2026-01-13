@@ -6,16 +6,29 @@
     <title>Pieter Christiaan Rotteveel | Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
         body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
         .gradient-text { background: linear-gradient(135deg, #2563eb, #0ea5e9); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .tech-card { backdrop-filter: blur(8px); background-color: rgba(255, 255, 255, 0.7); }
-        .project-card { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
-        .project-card:hover { transform: translateY(-5px); box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.05), 0 8px 10px -6px rgb(0 0 0 / 0.05); border-color: #3b82f6; }
+        
+        /* Particle Container */
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1; /* Behind text but above background */
+        }
+        
+        .hero-content { position: relative; z-index: 10; }
+        .tech-card { backdrop-filter: blur(12px); background-color: rgba(255, 255, 255, 0.8); }
+        .project-card { transition: all 0.3s ease; }
+        .project-card:hover { transform: translateY(-5px); border-color: #3b82f6; }
     </style>
 </head>
-<body class="bg-[#f8fafc] text-slate-900 antialiased">
+<body class="bg-[#fcfcfc] text-slate-900 antialiased">
 
     <nav class="fixed w-full z-50 bg-white/70 backdrop-blur-md border-b border-slate-200/50">
         <div class="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
@@ -27,8 +40,10 @@
         </div>
     </nav>
 
-    <header class="pt-40 pb-20 px-6">
-        <div class="max-w-5xl mx-auto">
+    <header class="relative pt-40 pb-24 px-6 overflow-hidden bg-white">
+        <div id="particles-js"></div>
+
+        <div class="max-w-5xl mx-auto hero-content">
             <h1 class="text-6xl md:text-8xl font-extrabold mb-8 tracking-tighter">Hi, I'm <span class="gradient-text">Pieter.</span></h1>
             <p class="text-xl md:text-2xl text-slate-600 max-w-3xl leading-relaxed mb-10 font-light">
                 BSc Economics student @ <span class="text-slate-900 font-medium">Bocconi University</span>. I love coding and applied data analytics and science. 
@@ -39,7 +54,7 @@
                 <div class="grid md:grid-cols-2 gap-8">
                     <div>
                         <h3 class="text-xs font-bold text-blue-600 uppercase tracking-widest mb-3">Core Stack</h3>
-                        <p class="text-slate-800 font-medium text-lg">Python · R · SQL · Excel</p>
+                        <p class="text-slate-800 font-medium text-lg font-mono">Python · R · SQL · Excel</p>
                     </div>
                     <div>
                         <h3 class="text-xs font-bold text-blue-600 uppercase tracking-widest mb-3">Tools & Libraries</h3>
@@ -51,8 +66,8 @@
             </div>
             
             <div class="flex flex-wrap gap-4">
-                <a href="#projects" class="bg-slate-900 text-white px-8 py-4 rounded-2xl font-bold hover:bg-blue-600 transition-all shadow-lg shadow-slate-200">View My Work</a>
-                <a href="https://github.com/pieterrotteveel" target="_blank" class="bg-white border border-slate-200 px-8 py-4 rounded-2xl font-bold hover:bg-slate-50 transition-all flex items-center gap-2">
+                <a href="#projects" class="bg-slate-900 text-white px-8 py-4 rounded-2xl font-bold hover:bg-blue-600 transition-all shadow-lg">View My Work</a>
+                <a href="https://github.com/pieterrotteveel" target="_blank" class="bg-white/50 border border-slate-200 px-8 py-4 rounded-2xl font-bold hover:bg-slate-50 transition-all flex items-center gap-2">
                     <i class="fab fa-github"></i> GitHub
                 </a>
             </div>
@@ -63,7 +78,6 @@
         <div class="max-w-5xl mx-auto px-6">
             <h2 class="text-3xl font-bold mb-16 tracking-tight">Featured Projects</h2>
             <div class="grid md:grid-cols-2 gap-10">
-                
                 <div class="project-card border border-slate-100 rounded-3xl p-8 bg-white flex flex-col justify-between shadow-sm">
                     <div>
                         <div class="flex justify-between items-start mb-6 font-mono text-xs text-blue-600 font-bold uppercase tracking-widest">
@@ -101,68 +115,60 @@
                         View Source <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
                     </a>
                 </div>
-
-                <div class="project-card border border-slate-100 rounded-3xl p-8 bg-white flex flex-col justify-between shadow-sm">
-                    <div>
-                        <div class="flex justify-between items-start mb-6 font-mono text-xs text-amber-600 font-bold uppercase tracking-widest">
-                            <span>FinTech</span>
-                            <i class="fas fa-wallet text-lg"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold mb-3 text-slate-900">Python Portfolio Tracker</h3>
-                        <p class="text-slate-600 mb-6 text-sm leading-relaxed">CLI portfolio tracker pulling live data from Yahoo Finance. Track investment performance, dividends, and real-time market moves from a CSV source.</p>
-                        <div class="flex gap-2 flex-wrap mb-8">
-                            <span class="text-[10px] font-bold px-3 py-1 bg-slate-100 text-slate-600 rounded-lg">yfinance</span>
-                            <span class="text-[10px] font-bold px-3 py-1 bg-slate-100 text-slate-600 rounded-lg">pandas</span>
-                            <span class="text-[10px] font-bold px-3 py-1 bg-slate-100 text-slate-600 rounded-lg">CLI</span>
-                        </div>
-                    </div>
-                    <a href="https://github.com/pieterrotteveel/Python-Basic-Portfolio-Tracker" target="_blank" class="group text-blue-600 font-bold flex items-center gap-2 text-sm">
-                        View Source <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
-                    </a>
                 </div>
-
-                <div class="project-card border border-slate-100 rounded-3xl p-8 bg-white flex flex-col justify-between shadow-sm">
-                    <div>
-                        <div class="flex justify-between items-start mb-6 font-mono text-xs text-purple-600 font-bold uppercase tracking-widest">
-                            <span>Optimization</span>
-                            <i class="fas fa-calculator text-lg"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold mb-3 text-slate-900">Production Planning</h3>
-                        <p class="text-slate-600 mb-6 text-sm leading-relaxed">Artisan cake shop competition project. Strategic operations planning to optimize production and pricing using competition-driven data analysis.</p>
-                        <div class="flex gap-2 flex-wrap mb-8">
-                            <span class="text-[10px] font-bold px-3 py-1 bg-slate-100 text-slate-600 rounded-lg">pandas</span>
-                            <span class="text-[10px] font-bold px-3 py-1 bg-slate-100 text-slate-600 rounded-lg">Optimization</span>
-                            <span class="text-[10px] font-bold px-3 py-1 bg-slate-100 text-slate-600 rounded-lg">Economics</span>
-                        </div>
-                    </div>
-                    <a href="https://github.com/pieterrotteveel/Sweet-Market-Production-Planning-and-Pricing-Competition" target="_blank" class="group text-blue-600 font-bold flex items-center gap-2 text-sm">
-                        View Source <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
-                    </a>
-                </div>
-
-            </div>
         </div>
     </section>
 
     <footer id="contact" class="py-24 bg-slate-950 text-white px-6">
         <div class="max-w-5xl mx-auto text-center">
-            <h2 class="text-4xl font-bold mb-4 tracking-tight">Let's build something together.</h2>
+            <h2 class="text-4xl font-bold mb-4 tracking-tight text-white">Let's build something together.</h2>
             <p class="text-slate-400 mb-12 font-light">Open for research collaborations, quantitative projects, and data science opportunities.</p>
-            
             <a href="mailto:pieterrotteveel.github@gmail.com" class="text-xl md:text-3xl font-medium text-blue-400 hover:text-white transition-colors underline underline-offset-8 decoration-slate-800">
                 pieterrotteveel.github@gmail.com
             </a>
-            
-            <div class="mt-16 flex justify-center gap-10 text-3xl">
-                <a href="https://linkedin.com/in/pieter-christiaan-rotteveel" class="text-slate-500 hover:text-white transition-all"><i class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/pieterrotteveel" class="text-slate-500 hover:text-white transition-all"><i class="fab fa-github"></i></a>
-            </div>
-            
             <div class="mt-24 pt-8 border-t border-white/5 text-[10px] text-slate-600 uppercase tracking-[0.3em]">
                 &copy; 2026 Pieter Christiaan Rotteveel · Designed for Impact
             </div>
         </div>
     </footer>
 
+    <script>
+        particlesJS("particles-js", {
+            "particles": {
+                "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+                "color": { "value": "#cbd5e1" }, /* Light Grey dots */
+                "shape": { "type": "circle" },
+                "opacity": { "value": 0.5, "random": false },
+                "size": { "value": 3, "random": true },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#e2e8f0", /* Soft grey lines */
+                    "opacity": 0.4,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 1.5,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": { "enable": true, "mode": "grab" },
+                    "onclick": { "enable": false }
+                },
+                "modes": {
+                    "grab": { "distance": 140, "line_linked": { "opacity": 1 } }
+                }
+            },
+            "retina_detect": true
+        });
+    </script>
 </body>
 </html>
