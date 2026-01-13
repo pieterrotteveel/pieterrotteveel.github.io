@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pieter Rotteveel | Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        .gradient-text { background: linear-gradient(90deg, #3b82f6, #2dd4bf); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900">
+
+    <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-slate-200">
+        <div class="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
+            <span class="text-xl font-bold tracking-tight">PR<span class="text-blue-600">.</span></span>
+            <div class="space-x-8 font-medium text-sm uppercase tracking-widest text-slate-600">
+                <a href="#projects" class="hover:text-blue-600 transition">Projects</a>
+                <a href="#blog" class="hover:text-blue-600 transition">Blog</a>
+                <a href="#contact" class="hover:text-blue-600 transition">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="pt-32 pb-20 px-6">
+        <div class="max-w-5xl mx-auto">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6">Hi, I'm <span class="gradient-text">Pieter.</span></h1>
+            <p class="text-xl text-slate-600 max-w-2xl leading-relaxed">
+                I'm a developer specializing in building clean, functional, and scalable digital experiences. 
+                Currently exploring the intersection of coding and creative design.
+            </p>
+            <div class="mt-10 flex gap-4">
+                <a href="#projects" class="bg-slate-900 text-white px-8 py-3 rounded-full font-semibold hover:bg-slate-800 transition">View My Work</a>
+                <a href="https://github.com/pieterrotteveel" class="border border-slate-300 px-8 py-3 rounded-full font-semibold hover:bg-slate-100 transition">GitHub</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="projects" class="py-20 bg-white">
+        <div class="max-w-5xl mx-auto px-6">
+            <h2 class="text-3xl font-bold mb-12">Featured Projects</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="group border border-slate-100 rounded-2xl overflow-hidden hover:shadow-xl transition shadow-sm">
+                    <div class="h-48 bg-slate-200 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80" alt="Project 1" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Algorithm Visualizer</h3>
+                        <p class="text-slate-600 mb-4 text-sm leading-relaxed">A tool designed to help students understand sorting algorithms through interactive animations.</p>
+                        <div class="flex gap-2 mb-4">
+                            <span class="text-xs font-bold px-3 py-1 bg-blue-50 text-blue-600 rounded-full">React</span>
+                            <span class="text-xs font-bold px-3 py-1 bg-green-50 text-green-600 rounded-full">D3.js</span>
+                        </div>
+                        <a href="#" class="text-blue-600 font-semibold hover:underline">View Project &rarr;</a>
+                    </div>
+                </div>
+
+                <div class="group border border-slate-100 rounded-2xl overflow-hidden hover:shadow-xl transition shadow-sm">
+                    <div class="h-48 bg-slate-200 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=800&q=80" alt="Project 2" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">E-Commerce Engine</h3>
+                        <p class="text-slate-600 mb-4 text-sm leading-relaxed">A full-stack backend solution for high-traffic inventory management and checkout systems.</p>
+                        <div class="flex gap-2 mb-4">
+                            <span class="text-xs font-bold px-3 py-1 bg-purple-50 text-purple-600 rounded-full">Node.js</span>
+                            <span class="text-xs font-bold px-3 py-1 bg-red-50 text-red-600 rounded-full">Redis</span>
+                        </div>
+                        <a href="#" class="text-blue-600 font-semibold hover:underline">View Project &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="blog" class="py-20 px-6">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-3xl font-bold mb-12">Latest Articles</h2>
+            <div class="space-y-8">
+                <article class="flex flex-col md:flex-row justify-between md:items-center border-b border-slate-200 pb-8 group cursor-pointer">
+                    <div>
+                        <span class="text-slate-400 text-sm font-medium">Jan 13, 2026 • 5 min read</span>
+                        <h3 class="text-2xl font-bold group-hover:text-blue-600 transition mt-2">Why Clean Code Matters in 2026</h3>
+                    </div>
+                    <span class="text-slate-300 group-hover:text-blue-600 transition hidden md:block"><i class="fas fa-arrow-right text-2xl"></i></span>
+                </article>
+
+                <article class="flex flex-col md:flex-row justify-between md:items-center border-b border-slate-200 pb-8 group cursor-pointer">
+                    <div>
+                        <span class="text-slate-400 text-sm font-medium">Dec 20, 2025 • 8 min read</span>
+                        <h3 class="text-2xl font-bold group-hover:text-blue-600 transition mt-2">The Future of AI-Assisted Development</h3>
+                    </div>
+                    <span class="text-slate-300 group-hover:text-blue-600 transition hidden md:block"><i class="fas fa-arrow-right text-2xl"></i></span>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact" class="py-20 bg-slate-900 text-white px-6">
+        <div class="max-w-5xl mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-6">Let's build something together.</h2>
+            <p class="text-slate-400 mb-8">Currently open for freelance projects and collaborations.</p>
+            <a href="mailto:your-email@example.com" class="text-2xl font-semibold border-b-2 border-blue-500 pb-2 hover:text-blue-400 transition">
+                pieter@example.com
+            </a>
+            <div class="mt-12 flex justify-center gap-6 text-2xl text-slate-500">
+                <a href="#" class="hover:text-white transition"><i class="fab fa-linkedin"></i></a>
+                <a href="#" class="hover:text-white transition"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="hover:text-white transition"><i class="fab fa-github"></i></a>
+            </div>
+            <p class="mt-20 text-sm text-slate-600">&copy; 2026 Pieter Rotteveel. Built with HTML & Tailwind.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
