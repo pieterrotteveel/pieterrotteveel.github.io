@@ -58,11 +58,11 @@
 
     <!-- Navigation -->
     <nav class="fixed w-full z-50 backdrop-blur-md bg-dark-bg/80 border-b border-slate-700/50">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+        <div class="max-w-7xl mx-auto px-6 py-4 md:py-0 h-auto md:h-20 flex flex-col md:flex-row justify-between items-center gap-4 md:gap-0">
             <a href="#" class="font-mono font-bold text-xl text-white hover:text-accent transition-colors duration-300">
                 <span class="text-accent">$</span> pieter_rotteveel
             </a>
-            <div class="flex gap-8 text-sm font-mono text-slate-400">
+            <div class="flex gap-6 md:gap-8 text-sm font-mono text-slate-400">
                 <a href="#about" class="hover:text-white transition-colors">_about</a>
                 <a href="#projects" class="hover:text-white transition-colors">_work</a>
                 <a href="#contact" class="hover:text-white transition-colors">_contact</a>
@@ -70,25 +70,25 @@
         </div>
     </nav>
 
-    <main class="max-w-7xl mx-auto px-6 pt-40 pb-20">
+    <main class="max-w-7xl mx-auto px-6 pt-32 md:pt-40 pb-20">
         
         <!-- Hero Section -->
-        <section id="about" class="mb-40">
+        <section id="about" class="mb-24 md:mb-40">
             <div class="max-w-5xl">
                 <p class="font-mono text-accent mb-6 animate-pulse">Running setup...</p>
-                <h1 class="font-display text-5xl md:text-8xl font-bold leading-tight mb-8 text-white">
+                <h1 class="font-display text-4xl md:text-8xl font-bold leading-tight mb-8 text-white">
                     Hi, I'm Pieter<span class="text-accent">.</span><br>
                     <span class="text-slate-500">This is my Portfolio.</span>
                 </h1>
                 
-                <div class="grid md:grid-cols-3 gap-12 mt-16">
+                <div class="grid md:grid-cols-3 gap-8 md:gap-12 mt-16">
                     <div class="md:col-span-2">
                         <div class="mb-8 border-l border-accent/50 pl-6 space-y-6">
                             <p class="text-xl md:text-2xl text-slate-300 leading-relaxed font-light">
                                 My name is Pieter Christiaan Rotteveel. I am a BSc Economics student @ <strong class="text-white font-medium">Bocconi University</strong>.
                             </p>
                             <p class="text-base md:text-lg text-slate-400 leading-relaxed font-light">
-                                I love coding and applied data analytics and science. Interested in quantitative finance and economics, machine learning (delving into neural nets), statistics, probability science and problem optimization.
+                                I enjoy coding and applied data analytics and science. Interested in quantitative finance and economics, machine learning (delving into neural nets), statistics, probability science and problem optimization.
                             </p>
                         </div>
                         
@@ -111,16 +111,16 @@
         </section>
 
         <!-- Projects Section -->
-        <section id="projects" class="mb-32">
-            <div class="flex items-end justify-between mb-16 border-b border-slate-800 pb-4">
-                <h2 class="font-display text-4xl text-white font-bold">Featured Projects</h2>
+        <section id="projects" class="mb-20 md:mb-32">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 md:mb-16 border-b border-slate-800 pb-4 gap-4 md:gap-0">
+                <h2 class="font-display text-3xl md:text-4xl text-white font-bold">Featured Projects</h2>
                 <span class="font-mono text-slate-600">index.html / projects</span>
             </div>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 
                 <!-- Project 1 -->
-                <a href="https://github.com/pieterrotteveel/Predicting-Loan-Payback" target="_blank" class="gradient-card p-8 flex flex-col h-full group">
+                <a href="https://github.com/pieterrotteveel/Predicting-Loan-Payback" target="_blank" class="gradient-card p-6 md:p-8 flex flex-col h-full group">
                     <div class="mb-6 flex justify-between items-start">
                         <div class="p-3 bg-blue-500/10 rounded-lg text-blue-400">
                             <i class="fa-solid fa-chart-line text-xl"></i>
@@ -138,7 +138,7 @@
                 </a>
 
                 <!-- Project 2 -->
-                <a href="https://github.com/pieterrotteveel/Optimal-Betting-Kelly-Criterion" target="_blank" class="gradient-card p-8 flex flex-col h-full group">
+                <a href="https://github.com/pieterrotteveel/Optimal-Betting-Kelly-Criterion" target="_blank" class="gradient-card p-6 md:p-8 flex flex-col h-full group">
                     <div class="mb-6 flex justify-between items-start">
                         <div class="p-3 bg-teal-500/10 rounded-lg text-teal-400">
                             <i class="fa-solid fa-dice text-xl"></i>
@@ -156,7 +156,7 @@
                 </a>
 
                 <!-- Project 3 -->
-                <a href="https://github.com/pieterrotteveel/Python-Basic-Portfolio-Tracker" target="_blank" class="gradient-card p-8 flex flex-col h-full group">
+                <a href="https://github.com/pieterrotteveel/Python-Basic-Portfolio-Tracker" target="_blank" class="gradient-card p-6 md:p-8 flex flex-col h-full group">
                     <div class="mb-6 flex justify-between items-start">
                         <div class="p-3 bg-purple-500/10 rounded-lg text-purple-400">
                             <i class="fa-solid fa-terminal text-xl"></i>
@@ -174,7 +174,7 @@
                 </a>
 
                 <!-- Project 4 -->
-                <a href="https://github.com/pieterrotteveel/Sweet-Market-Production-Planning-and-Pricing-Competition" target="_blank" class="gradient-card p-8 flex flex-col h-full group">
+                <a href="https://github.com/pieterrotteveel/Sweet-Market-Production-Planning-and-Pricing-Competition" target="_blank" class="gradient-card p-6 md:p-8 flex flex-col h-full group">
                     <div class="mb-6 flex justify-between items-start">
                         <div class="p-3 bg-orange-500/10 rounded-lg text-orange-400">
                             <i class="fa-solid fa-shop text-xl"></i>
@@ -192,7 +192,7 @@
                 </a>
 
                 <!-- Project 5 -->
-                <a href="https://github.com/pieterrotteveel/Social-Media-Extremism-Detection-Challenge" target="_blank" class="gradient-card p-8 flex flex-col h-full group">
+                <a href="https://github.com/pieterrotteveel/Social-Media-Extremism-Detection-Challenge" target="_blank" class="gradient-card p-6 md:p-8 flex flex-col h-full group">
                     <div class="mb-6 flex justify-between items-start">
                         <div class="p-3 bg-red-500/10 rounded-lg text-red-400">
                             <i class="fa-solid fa-shield-halved text-xl"></i>
@@ -210,7 +210,7 @@
                 </a>
 
                 <!-- Project 6 -->
-                <a href="https://github.com/pieterrotteveel/Option-Pricing-Utilities" target="_blank" class="gradient-card p-8 flex flex-col h-full group">
+                <a href="https://github.com/pieterrotteveel/Option-Pricing-Utilities" target="_blank" class="gradient-card p-6 md:p-8 flex flex-col h-full group">
                     <div class="mb-6 flex justify-between items-start">
                         <div class="p-3 bg-green-500/10 rounded-lg text-green-400">
                             <i class="fa-solid fa-calculator text-xl"></i>
@@ -231,7 +231,7 @@
         </section>
 
         <!-- Footer / Contact -->
-        <footer id="contact" class="max-w-2xl mx-auto text-center pt-20 border-t border-slate-800">
+        <footer id="contact" class="max-w-2xl mx-auto text-center pt-12 md:pt-20 border-t border-slate-800">
             <h2 class="font-display text-3xl font-bold text-white mb-8">Execute Protocol: <span class="text-accent">Connect</span></h2>
             
             <a href="mailto:pieterrotteveel.github@gmail.com" class="inline-block text-xl text-slate-300 hover:text-accent font-mono border-b border-accent/20 hover:border-accent transition-all pb-1 mb-12">
